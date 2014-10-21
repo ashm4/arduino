@@ -18,7 +18,7 @@ void loop() {
 
  delay(10);
 
- if (val > 512); //We don't know how much light a flashlight emits, so this will be changed later
+ if (val > 512) //We don't know how much light a flashlight emits, so this will be changed later
   time = time + 1;
 
 Serial.write(time);
