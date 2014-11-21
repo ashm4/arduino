@@ -34,7 +34,7 @@ if(secs == 60) {
  if (val > 512) //We don't know how much light a flashlight emits, so this will be changed later
   secs = secs + 1;
 
-Serial.println(secs);
+Serial.print(secs);
 Serial.print(" seconds");
 Serial.println(mins);
 Serial.print(" minutes");
