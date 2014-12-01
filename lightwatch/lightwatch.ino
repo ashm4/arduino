@@ -8,9 +8,6 @@ int mins = 0;
 int hours = 0;
 int days = 0;
 
-int delayAmount = 1000;
-int lightThreshold = 200;
-
 void setup() {
 
  pinMode(photo, INPUT); //pin 4 is a photoresistor, which detects light
@@ -20,33 +17,33 @@ void setup() {
 
 void loop() {
 
- analogRead(photo);
+ val = analogRead(photo);
 
 if(secs == 60) {
 	mins = mins + 1;
+        secs = 0;
  	if(mins == 60) {
  		hours = hours + 1;
+                mins = 0;
  			if(hours == 24) {
  				days = days + 1;
+                                hours = 0;
  				}
  		}
  }	
  			
- delay(delayAmount);
+ delay(1000);
 
- if (val > lightThreshold) //We don't know how much light a flashlight emits, so this will be changed later
+ if (val > 512) //We don't know how much light a flashlight emits, so this will be changed later
   secs = secs + 1;
 
-Serial.println("");
-Serial.println("==============================");
-Serial.print(secs);
-Serial.print(" seconds");
+Serial.println(secs);
+Serial.println("seconds");
 Serial.println(mins);
-Serial.print(" minutes");
+Serial.println("minutes");
 Serial.println(hours);
-Serial.print(" hours");
+Serial.println("hours");
 Serial.println(days);
-Serial.print(" days");
-Serial.println("");
+Serial.println("days");
 Serial.println("==============================");
 }
